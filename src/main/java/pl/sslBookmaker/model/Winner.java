@@ -1,4 +1,4 @@
 package pl.sslBookmaker.model;
 
-public enum  Winner { TEAM_A, TEAM_B, DRAW
+public enum  Winner {DRAW, HOME_TEAM, AWAY_TEAM
 }

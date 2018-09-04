@@ -6,42 +6,42 @@ import javax.persistence.*;
 public class Match extends BaseModelVersion {
 
     @ManyToOne
-    @JoinColumn(name = "teamA_id")
-    private Team teamA;
+    @JoinColumn(name = "home_team_id")
+    private Team homeTeam;
 
     @ManyToOne
-    @JoinColumn(name = "teamB_id")
-    private Team teamB;
+    @JoinColumn(name = "away_team_id")
+    private Team awayTeam;
 
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
 
     @Column(name = "finished")
-    private Boolean finished;
+    private Boolean finished=false;
 
     @Column(name = "round")
     private Integer round;
 
-    @OneToOne(mappedBy = "match")
+    @OneToOne
     @JoinColumn(name = "result_id")
     private Result result;
 
 
-    public Team getTeamA() {
-        return teamA;
+    public Team getHomeTeam() {
+        return homeTeam;
     }
 
-    public void setTeamA(Team teamA) {
-        this.teamA = teamA;
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
-    public Team getTeamB() {
-        return teamB;
+    public Team getAwayTeam() {
+        return awayTeam;
     }
 
-    public void setTeamB(Team teamB) {
-        this.teamB = teamB;
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
     }
 
     public Group getGroup() {

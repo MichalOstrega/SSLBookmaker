@@ -10,8 +10,6 @@ public class Participant extends BaseModel {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @Column(name = "match_finished")
-    private Integer matchFinished = 0;
 
     @Column(name = "goal_scored")
     private Integer goalScored = 0;
@@ -32,7 +30,6 @@ public class Participant extends BaseModel {
     private Integer points = 0;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
     private Group group;
 
 }

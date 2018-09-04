@@ -1,36 +1,38 @@
 package pl.sslBookmaker.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Entity(name = "results")
 public class Result extends BaseModelVersion {
 
-    @Column(name = "team_A_score")
-    private Integer TeamAScore;
+    @OneToOne(mappedBy = "result")
+    private Match match;
 
-    @Column(name = "team_B_score")
-    private Integer TeamBScore;
+    @Column(name = "home_team_score")
+    private Integer homeTeamScore;
+
+    @Column(name = "away_team_score")
+    private Integer awayTeamScore;
 
     @Enumerated(EnumType.ORDINAL)
     private Winner winner;
 
-    public Integer getTeamAScore() {
-        return TeamAScore;
+
+
+    public Integer getHomeTeamScore() {
+        return homeTeamScore;
     }
 
-    public void setTeamAScore(Integer teamAScore) {
-        TeamAScore = teamAScore;
+    public void setHomeTeamScore(Integer homeTeamScore) {
+        this.homeTeamScore = homeTeamScore;
     }
 
-    public Integer getTeamBScore() {
-        return TeamBScore;
+    public Integer getAwayTeamScore() {
+        return awayTeamScore;
     }
 
-    public void setTeamBScore(Integer teamBScore) {
-        TeamBScore = teamBScore;
+    public void setAwayTeamScore(Integer awayTeamScore) {
+        this.awayTeamScore = awayTeamScore;
     }
 
     public Winner getWinner() {

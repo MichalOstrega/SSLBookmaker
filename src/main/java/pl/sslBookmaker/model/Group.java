@@ -9,11 +9,9 @@ public class Group extends BaseModelVersion {
     private String name;
 
     @OneToMany(mappedBy = "group")
-    @JoinColumn(name = "participant_id")
     private Set<Participant> participants;
 
-    @OneToMany
-    @JoinColumn(name = "match_id")
+    @OneToMany(mappedBy = "group")
     private Set<Match> matches;
 
     public String getName() {
